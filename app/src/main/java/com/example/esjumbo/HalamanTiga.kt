@@ -28,9 +28,9 @@ fun HalamanTiga(
     modifier: Modifier = Modifier
 ) {
     val items = listOf(
-        Pair("Nama Pelanggan", orderUIState.nama),
-        Pair("Alamat", orderUIState.alamat),
-        Pair("Nomor Telepon", orderUIState.noTelp),
+        Pair(stringResource(R.string.nama), orderUIState.nama),
+        Pair(stringResource(R.string.alamat), orderUIState.alamat),
+        Pair(stringResource(R.string.no_telp), orderUIState.noTelp),
         Pair(stringResource(R.string.quantity), orderUIState.jumlah),
         Pair(stringResource(R.string.flavor), orderUIState.rasa)
     )
