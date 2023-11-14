@@ -29,8 +29,8 @@ fun HalamanTiga(
 ) {
     val items = listOf(
         Pair("Nama Pelanggan", orderUIState.nama),
-        Pair("Nomor Telepon", orderUIState.noTelp),
         Pair("Alamat", orderUIState.alamat),
+        Pair("Nomor Telepon", orderUIState.noTelp),
         Pair(stringResource(R.string.quantity), orderUIState.jumlah),
         Pair(stringResource(R.string.flavor), orderUIState.rasa)
     )
