@@ -75,11 +75,10 @@ fun HalamanSatu(
         Spacer(modifier = Modifier.padding(16.dp))
         OutlinedTextField(value = telponTxt, onValueChange = {
             telponTxt = it
-        }, label = {
-            Text(text = "Telepon")
-        }, keyboardOptions = KeyboardOptions.Default.copy(
-            keyboardType = KeyboardType.Phone
-        )
+        }, label = { Text(
+            text = "Telepon") },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
         Spacer(modifier = Modifier.padding(16.dp))
         Row(
