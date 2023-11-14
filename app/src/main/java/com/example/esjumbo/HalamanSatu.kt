@@ -23,15 +23,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HalamanSatu(
     onSubmitButtonClick: (MutableList<String>) -> Unit,
-    onCancelButtonClicked: () -> Unit
+    onCancelButtonClicked: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
 
     var namaTxt by rememberSaveable {
@@ -53,6 +56,11 @@ fun HalamanSatu(
             .padding(16.dp)
             .fillMaxSize()
     ) {
+        Text(
+            text = "Data Pelanggan",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(16.dp))
         OutlinedTextField(value = namaTxt, onValueChange = {
             namaTxt = it
         }, label = {

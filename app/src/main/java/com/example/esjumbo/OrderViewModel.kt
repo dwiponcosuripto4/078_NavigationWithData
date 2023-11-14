@@ -13,6 +13,7 @@ class OrderViewModel : ViewModel(){
     private val _stateUI = MutableStateFlow(OrderUIState())
     val stateUI:StateFlow<OrderUIState> = _stateUI.asStateFlow()
 
+
     fun setJumlah(jmlEsJumbo:Int){
         _stateUI.update { stateSaatIni ->
             stateSaatIni.copy(
