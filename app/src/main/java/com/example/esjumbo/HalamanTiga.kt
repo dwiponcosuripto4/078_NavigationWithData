@@ -21,91 +21,76 @@ import com.example.esjumbo.data.OrderUIState
 import com.example.esjumbo.komponen.FormatLabelHarga
 
 @Composable
-fun HalamanTiga (
+fun HalamanTiga(
     orderUIState: OrderUIState,
     onCancelButtonClicked: () -> Unit,
     //onCancelButtonClicked: (String, String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val items = listOf(
+        Pair("Nama Pelanggan", orderUIState.nama),
+        Pair("Nomor Telepon", orderUIState.noTelp),
+        Pair("Alamat", orderUIState.alamat),
         Pair(stringResource(R.string.quantity), orderUIState.jumlah),
         Pair(stringResource(R.string.flavor), orderUIState.rasa)
     )
 
-    Column (
+    Column(
         modifier = modifier,
         verticalArrangement = Arrangement.SpaceBetween
-    ){
-        Column (
+    ) {
+        Column(
             modifier =
-                Modifier.padding(dimensionResource(R.dimen.padding_medium)),
+            Modifier.padding(dimensionResource(R.dimen.padding_medium)),
             verticalArrangement =
-                Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
-        ){
+            Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
+        ) {
             items.forEach { item ->
                 Column {
                     Text(item.first.uppercase())
-                    Text(text = item.second.toString(), fontWeight =
-                    FontWeight.Bold)
+                    Text(
+                        text = item.second.toString(), fontWeight =
+                        FontWeight.Bold
+                    )
                 }
-                Divider(thickness =
-                dimensionResource(R.dimen.thickness_divider))
+                Divider(
+                    thickness =
+                    dimensionResource(R.dimen.thickness_divider)
+                )
             }
-            Spacer(modifier =
-            Modifier.height(dimensionResource(R.dimen.padding_small)))
+            Spacer(
+                modifier =
+                Modifier.height(dimensionResource(R.dimen.padding_small))
+            )
             FormatLabelHarga(
                 subtotal = orderUIState.harga,
                 modifier = Modifier.align(Alignment.End)
             )
         }
 
-        Row (
+        Row(
             modifier = Modifier
                 .weight(1f, false)
                 .padding(dimensionResource(R.dimen.padding_small))
-        ){
-            Button(
-                modifier = Modifier.fillMaxWidth(),
-                onClick = {}
+        ) {
+            Column(
+                verticalArrangement =
+                Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
             ) {
-                Text(stringResource(R.string.send))
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {}
+                ) {
+                    Text(stringResource(R.string.send))
+                }
+                OutlinedButton(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = onCancelButtonClicked
+                ) {
+                    Text(stringResource(R.string.cancel))
+                }
             }
-            OutlinedButton(
-                modifier = Modifier.fillMaxWidth(),
-                onClick = onCancelButtonClicked
-            ) {
-                Text(stringResource(R.string.cancel))
-            }
+
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
