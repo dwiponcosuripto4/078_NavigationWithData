@@ -47,10 +47,17 @@ fun HalamanTiga(
         ) {
             items.forEach { item ->
                 Column {
-                    Text(item.first.uppercase())
+                    Text(item.first, fontWeight = FontWeight.Bold)
                     Text(
-                        text = item.second.toString(), fontWeight =
-                        FontWeight.Bold
+                        text = item.second.toString(),
+                        fontWeight = if (item.first == stringResource(R.string.flavor) ||
+                            item.first == stringResource(R.string.quantity) ||
+                            item.first == stringResource(R.string.subtotal_price)
+                        ) {
+                            FontWeight.Bold
+                        } else {
+                            FontWeight.Normal
+                        }
                     )
                 }
                 Divider(
